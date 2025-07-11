@@ -1,209 +1,274 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Almiqdad Yahya | Physics Portfolio</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <title>Almiqdad Yahya | Theoretical Physics</title>
   <style>
-    /* Added styles for contact info */
-    .contact-info {
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 8px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+    /* Minimalist CSS Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
     
-    /* Style updates for date accuracy */
+    /* Typography */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    h1, h2, h3 {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    h1 {
+      font-size: 2.2rem;
+      margin-top: 10px;
+    }
+    
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #666;
+    }
+    
+    h3 {
+      font-size: 1.4rem;
+      margin-top: 30px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    p {
+      margin-bottom: 20px;
+      color: #444;
+    }
+    
+    /* Sections */
+    .section-tagline {
+      font-size: 0.95rem;
+      color: #777;
+      margin-bottom: 15px;
+    }
+    
+    .entry {
+      margin-bottom: 25px;
+    }
+    
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    
+    .entry-title {
+      font-weight: 600;
+    }
+    
     .date {
-      font-size: 0.85rem;
-      color: #666;
-      float: right;
+      font-size: 0.9rem;
+      color: #777;
     }
     
-    /* GitHub links in projects */
-    .project-link {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    .project-link:hover {
-      text-decoration: underline;
+    .entry-details {
+      color: #555;
+      font-size: 0.95rem;
     }
     
-    /* Footer skills section */
-    .footer-meta {
-      margin-top: 15px;
+    .tech {
       font-size: 0.9rem;
       color: #666;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
+      margin: 5px 0;
+      font-style: italic;
+    }
+    
+    /* Links */
+    a {
+      color: #333;
+      text-decoration: none;
+      border-bottom: 1px solid #999;
+      transition: border-color 0.2s;
+    }
+    
+    a:hover {
+      border-bottom-color: #333;
+    }
+    
+    /* Footer */
+    footer {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    
+    .social-icon {
+      display: inline-block;
+      margin: 0 5px;
+      border-bottom: none;
+    }
+    
+    .social-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: #555;
+      transition: fill 0.2s;
+    }
+    
+    .social-icon:hover svg {
+      fill: #000;
+    }
+    
+    /* Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .entry-header {
+        flex-direction: column;
+      }
+      
+      .date {
+        margin-top: 3px;
+      }
     }
   </style>
 </head>
-<body class="light_theme">
-  <button class="theme-btn" aria-label="Change Theme" title="Change Theme" data-theme-btn>
-    <span class="icon"></span>
-  </button>
-
-  <div class="page-content">
-    <div class="header-row">
-      <img src="me.jpeg" alt="Almiqdad Yahya" class="avatar-img">
-      <div class="header-text">
-        <h1 class="name">ALMIQDAD YAHYA</h1>
-        <h2 class="role">Theoretical Physics Researcher</h2>
-        <div class="contact-info">
-          <span>📍 Trieste, Italy</span>
-          <span>✉️ Almiqdad@ictp.it</span>
-          <span>📞 +39 379 109 3832</span>
-        </div>
-        <div class="education-header">
-          <div>
-            <strong>Abdus Salam ICTP</strong> 
-            <span class="date">2024-Present</span><br>
-            <span>Postgraduate Diploma, Theoretical Physics</span>
-          </div>
-          <div>
-            <strong>University of Khartoum</strong> 
-            <span class="date">2016-2024</span><br>
-            <span>BSc Physics | GPA: 3.72/4.0</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <p class="bio">I'm Almiqdad, a theoretical physics researcher fascinated by fundamental questions in high-energy physics and cosmology. I bridge theoretical predictions with experimental observations through analytical and computational approaches.</p>
-    
-    <div class="research">
-      <h3>/Research Experience <span aria-hidden="true">🔬</span></h3>
-      <div class="section-tagline">Theory, computation, and experiment</div>
-      <div class="section-accent-bar"></div>
-      
-      <div class="research-item">
-        <strong>LSI Group (Research Program for International Talents)</strong> <span class="date">Oct 2023 - Jan 2024</span><br>
-        <span>Derived linear response functions using time-dependent perturbation theory with non-local potentials in Hartree-Fock approximation. Explored connections to Bethe-Salpeter equation.</span>
-      </div>
-      
-      <div class="research-item">
-        <strong>Perimeter Scholars International</strong> <span class="date">May 2021 - Jun 2021</span><br>
-        <span>10-week program covering supersymmetric quantum mechanics, statistical mechanics, and numerical methods. Implemented dimer solutions for Ising model focusing on dimer physics.</span>
-      </div>
-      
-      <div class="research-item">
-        <strong>International Summer School in Electronic Structure</strong> <span class="date">May 2024 - Jul 2024</span><br>
-        <span>Attended lectures on advanced electronic structure theories including DFT, TDDFT, Hartree-Fock, and perturbation theory. Focused on electron correlation functions.</span>
-      </div>
-      
-      <div class="research-item">
-        <strong>Sudanese Next Astronomer Program</strong><br>
-        <span>Focused on data fitting and modeling techniques for astrophysics applications.</span>
-      </div>
-      
-      <div class="research-item">
-        <strong>African School for Electronic Structure Methods</strong><br>
-        <span>Learned foundational concepts in many-body quantum mechanics, DFT, and perturbative approaches.</span>
-      </div>
-    </div>
-    
-    <div class="projects">
-      <h3>/Projects <span aria-hidden="true">🛠️</span></h3>
-      <div class="section-tagline">Building, coding, and creative solutions</div>
-      <div class="section-accent-bar"></div>
-      
-      <div class="project">
-        <a href="https://github.com/miqdadgithub" class="project-link" target="_blank">
-          <strong>Mie Scattering Suspension Analysis</strong>
-        </a> <span class="date">Jul 2022 - Sep 2022</span><br>
-        <span class="tech">Python, Arduino, 3D Printing</span><br>
-        <span>Cost-effective setup using 3D printing and Arduino Uno for quantitative measurement of particle suspensions in fluids</span>
-      </div>
-      
-      <div class="project">
-        <a href="https://github.com/miqdadgithub" class="project-link" target="_blank">
-          <strong>Markov Chain Music Generator</strong>
-        </a> <span class="date">Jan 2023</span><br>
-        <span class="tech">Python, NLP</span><br>
-        <span>Python program that processes lyrics and generates new musical compositions using Markov chain algorithms</span>
-      </div>
-    </div>
-    
-    <div class="papers">
-      <h3>/Papers <span aria-hidden="true">📄</span></h3>
-      <div class="section-tagline">Selected publications and preprints</div>
-      <div class="section-accent-bar"></div>
-      <!-- Papers section left empty as requested -->
-    </div>
-    
-    <div class="vlog">
-      <h3>/Vlog <span aria-hidden="true">📹</span></h3>
-      <div class="section-tagline">Field notes, stories, and science adventures</div>
-      <div class="section-accent-bar"></div>
-      <!-- Vlog section left empty as requested -->
-    </div>
-    
-    <footer class="main-footer">
-      <div class="social-links">
-        <a href="https://github.com/miqdadgithub" target="_blank" class="social-icon" aria-label="GitHub">
-          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="24" width="24">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"></path>
-          </svg>
-        </a>
-        
-        <a href="https://x.com/MiqdadGreeb" target="_blank" class="social-icon" aria-label="Twitter">
-          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="24" width="24">
-            <path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"></path>
-          </svg>
-        </a>
-        
-        <a href="https://www.linkedin.com/in/almiqdad-yahya-7631ba2a0" target="_blank" class="social-icon" aria-label="LinkedIn">
-          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="24" width="24">
-            <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"></path>
-          </svg>
-        </a>
-        
-        <a href="https://www.instagram.com/almiqdad.yahya" target="_blank" class="social-icon" aria-label="Instagram">
-          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="24" width="24">
-            <path d="M11.999 7.377a4.623 4.623 0 1 0 0 9.248 4.623 4.623 0 0 0 0-9.248zm0 7.627a3.004 3.004 0 1 1 0-6.008 3.004 3.004 0 0 1 0 6.008z"></path>
-            <circle cx="16.806" cy="7.207" r="1.078"></circle>
-            <path d="M20.533 6.111A4.605 4.605 0 0 0 17.9 3.479a6.606 6.606 0 0 0-2.186-.42c-.963-.042-1.268-.054-3.71-.054s-2.755 0-3.71.054a6.554 6.554 0 0 0-2.184.42 4.6 4.6 0 0 0-2.633 2.632 6.585 6.585 0 0 0-.419 2.186c-.043.962-.056 1.267-.056 3.71 0 2.442 0 2.753.056 3.71.015.748.156 1.486.419 2.187a4.61 4.61 0 0 0 2.634 2.632 6.584 6.584 0 0 0 2.185.45c.963.042 1.268.055 3.71.055s2.755 0 3.71-.055a6.615 6.615 0 0 0 2.186-.419 4.613 4.613 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.186.043-.962.056-1.267.056-3.71s0-2.753-.056-3.71a6.581 6.581 0 0 0-.421-2.217zm-1.218 9.532a5.043 5.043 0 0 1-.311 1.688 2.987 2.987 0 0 1-1.712 1.711 4.985 4.985 0 0 1-1.67.311c-.95.044-1.218.055-3.654.055-2.438 0-2.687 0-3.655-.055a4.96 4.96 0 0 1-1.669-.311 2.985 2.985 0 0 1-1.719-1.711 5.08 5.08 0 0 1-.311-1.669c-.043-.95-.053-1.218-.053-3.654 0-2.437 0-2.686.053-3.655a5.038 5.038 0 0 1 .311-1.687c.305-.789.93-1.41 1.719-1.712a5.01 5.01 0 0 1 1.669-.311c.951-.043 1.218-.055 3.655-.055s2.687 0 3.654.055a4.96 4.96 0 0 1 1.67.311 2.991 2.991 0 0 1 1.712 1.712 5.08 5.08 0 0 1 .311 1.669c.043.951.054 1.218.054 3.655 0 2.436 0 2.698-.043 3.654h-.011z"></path>
-          </svg>
-        </a>
-        
-        <a href="https://youtube.com/@theoryofeverything2.0" target="_blank" class="social-icon" aria-label="YouTube">
-          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="24" width="24">
-            <path d="M21.593 7.203a2.506 2.506 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765 1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.515 2.515 0 0 0 1.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831zM9.996 15.005l.005-6 5.207 3.005-5.212 2.995z"></path>
-          </svg>
-        </a>
-      </div>
-      
-      <div class="footer-meta">
-        <div class="honors-footer">
-          <strong>Honors & Awards:</strong> 
-          ICTP Scholarship (2024-2025) • CNRS DSCA Award (2024) • 
-          University Academic Excellence Award (2017) • Faculty Excellence Awards (2018-2024)
-        </div>
-        <div class="skills-footer">
-          <strong>Skills:</strong> Python • Scientific Writing • Teamwork • 
-          <strong>Languages:</strong> Arabic (Native) • English (Professional)
-        </div>
-        <div class="copyright">© 2025 Almiqdad Yahya | Theoretical Physics Portfolio</div>
-      </div>
-    </footer>
-    
-    <div id="modal-overlay" class="modal-overlay" style="display:none;">
-      <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button class="modal-close" aria-label="Close modal">&times;</button>
-        <div id="modal-content-area"></div>
-      </div>
-    </div>
-  </div>
+<body>
+  <header>
+    <h1>ALMIQDAD YAHYA</h1>
+    <h2>Theoretical Physics Researcher</h2>
+    <p>I explore fundamental questions in high-energy physics and cosmology, bridging theoretical predictions with experimental observations through analytical and computational approaches.</p>
+  </header>
   
-  <script src="script.js"></script>
+  <section class="experience">
+    <h3>/Experience</h3>
+    <div class="section-tagline">Research and academic positions</div>
+    
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">LSI Group (Research Program for International Talents)</div>
+        <div class="date">Oct 2023 - Jan 2024</div>
+      </div>
+      <div class="entry-details">
+        Derived linear response functions using time-dependent perturbation theory with non-local potentials in Hartree-Fock approximation. Explored connections to Bethe-Salpeter equation.
+      </div>
+    </div>
+    
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">Perimeter Scholars International</div>
+        <div class="date">May 2021 - Jun 2021</div>
+      </div>
+      <div class="entry-details">
+        10-week program covering supersymmetric quantum mechanics, statistical mechanics, and numerical methods. Implemented dimer solutions for Ising model.
+      </div>
+    </div>
+    
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">International Summer School in Electronic Structure</div>
+        <div class="date">May 2024 - Jul 2024</div>
+      </div>
+      <div class="entry-details">
+        Attended lectures on advanced electronic structure theories including DFT, TDDFT, Hartree-Fock, and perturbation theory.
+      </div>
+    </div>
+    
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">Sudanese Next Astronomer Program</div>
+        <div class="date">2021</div>
+      </div>
+      <div class="entry-details">
+        Data fitting and modeling techniques for astrophysics applications.
+      </div>
+    </div>
+    
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">African School for Electronic Structure Methods</div>
+        <div class="date">2021</div>
+      </div>
+      <div class="entry-details">
+        Learned foundational concepts in many-body quantum mechanics and density functional theory.
+      </div>
+    </div>
+  </section>
+  
+  <section class="projects">
+    <h3>/Projects</h3>
+    <div class="section-tagline">Key implementations and solutions</div>
+    
+    <div class="entry">
+      <div class="entry-header">
+        <a href="https://github.com/miqdadgithub/Yokawa-Sim" class="entry-title">Yokawa Sim</a>
+        <div class="date">2023</div>
+      </div>
+      <div class="tech">Python, Numerical Methods</div>
+      <div class="entry-details">
+        Simulation of quantum systems using Yokawa potential interactions.
+      </div>
+    </div>
+    
+    <div class="entry">
+      <div class="entry-header">
+        <a href="https://github.com/miqdadgithub" class="entry-title">Mie Scattering Suspension Analysis</a>
+        <div class="date">Jul 2022 - Sep 2022</div>
+      </div>
+      <div class="tech">Python, Arduino, 3D Printing</div>
+      <div class="entry-details">
+        Cost-effective experimental setup for quantitative measurement of particle suspensions in fluids.
+      </div>
+    </div>
+    
+    <div class="entry">
+      <div class="entry-header">
+        <a href="https://github.com/miqdadgithub" class="entry-title">Markov Chain Music Generator</a>
+        <div class="date">Jan 2023</div>
+      </div>
+      <div class="tech">Python, NLP</div>
+      <div class="entry-details">
+        Processes lyrics and generates new musical compositions using Markov chain algorithms.
+      </div>
+    </div>
+  </section>
+  
+  <section class="papers">
+    <h3>/Papers</h3>
+    <div class="section-tagline">Publications and preprints</div>
+    <!-- Content coming soon -->
+  </section>
+  
+  <section class="vlog">
+    <h3>/Vlog</h3>
+    <div class="section-tagline">Science communication and insights</div>
+    <!-- Content coming soon -->
+  </section>
+  
+  <footer>
+    <div class="social-links">
+      <a href="https://github.com/miqdadgithub" class="social-icon" aria-label="GitHub">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.5.9 2.8v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/>
+        </svg>
+      </a>
+    </div>
+    <p>© 2025 Almiqdad Yahya | Theoretical Physics Portfolio</p>
+  </footer>
 </body>
 </html>
