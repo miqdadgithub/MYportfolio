@@ -1,5 +1,22 @@
-// Modal functionality only
+// Scroll animation for skill bars
 document.addEventListener('DOMContentLoaded', function() {
+  // Intersection Observer for section animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  // Observe all sections
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
+  
+  // Modal functionality
   const modalOverlay = document.createElement('div');
   modalOverlay.id = 'modal-overlay';
   modalOverlay.className = 'modal-overlay';
