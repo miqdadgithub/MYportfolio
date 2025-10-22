@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://miqdadgithub.github.io/MYportfolio/sitemap.xml
