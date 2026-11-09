@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 140">
+  <title>Closed-string worldsheet</title>
+  <desc>A loop sweeps out a tube. The terracotta ring shows the closed string at one instant.</desc>
+  <path d="M39 36C87 30 131 49 172 31A14 34 0 0 1 172 99C130 116 90 97 39 104A14 34 0 0 1 39 36Z" fill="#faf7f4"/>
+  <g fill="none" stroke="#b4a89b" stroke-width=".75" stroke-linecap="round">
+    <path d="M39 36C87 30 131 49 172 31M39 104C90 97 130 116 172 99"/>
+    <ellipse cx="39" cy="70" rx="14" ry="34"/>
+    <ellipse cx="172" cy="65" rx="14" ry="34"/>
+    <path d="M39 55C88 49 130 68 172 50M39 86C89 80 130 99 172 81" opacity=".5"/>
+    <ellipse cx="72" cy="71" rx="14" ry="34" opacity=".5"/>
+    <ellipse cx="136" cy="73" rx="14" ry="34" opacity=".5"/>
+  </g>
+  <ellipse cx="104" cy="74" rx="14" ry="34" fill="none" stroke="#a75d49" stroke-width="1.4"/>
+</svg>

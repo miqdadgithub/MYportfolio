@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 140">
+  <title>Open-string worldsheet</title>
+  <desc>A string with two endpoints sweeps out a strip. The terracotta curve shows the string at one instant.</desc>
+  <path d="M25 38C74 12 116 66 174 36C182 51 185 78 184 99C125 127 79 72 31 102C31 78 28 54 25 38Z" fill="#faf7f4"/>
+  <g fill="none" stroke="#b4a89b" stroke-width=".75" stroke-linecap="round">
+    <path d="M25 38C74 12 116 66 174 36M31 102C79 72 125 127 184 99M25 38C28 54 31 78 31 102M174 36C182 51 185 78 184 99"/>
+    <path d="M27 53C75 26 119 80 180 52M30 85C78 56 124 111 184 83" opacity=".58"/>
+    <path d="M60.8 30.6C63 48 66 77 66.8 92.1M98.9 40C103 60 106 81 106.4 101.7M136.5 46.2C143 67 147 90 147 108.4" opacity=".48"/>
+  </g>
+  <path d="M29 69C76 41 122 95 183 68" fill="none" stroke="#a75d49" stroke-width="1.4" stroke-linecap="round"/>
+  <g fill="#a75d49"><circle cx="29" cy="69" r="2"/><circle cx="183" cy="68" r="2"/></g>
+</svg>
