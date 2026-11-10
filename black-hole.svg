@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 130">
+  <title>Black hole and lensed accretion disk</title>
+  <desc>A near edge-on schematic of a black hole. Light bent by gravity makes the far side of its flat accretion disk appear above and below the dark shadow.</desc>
+  <!-- Qualitative reference: NASA Scientific Visualization Studio, https://svs.gsfc.nasa.gov/13326 -->
+  <defs>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#665853"/>
+      <stop offset="1" stop-color="#3f3531"/>
+    </linearGradient>
+    <linearGradient id="disk" x1="28" y1="0" x2="272" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ac6552" stop-opacity=".05"/>
+      <stop offset=".36" stop-color="#a45b48" stop-opacity=".9"/>
+      <stop offset=".64" stop-color="#b37b67" stop-opacity=".63"/>
+      <stop offset="1" stop-color="#ad8170" stop-opacity=".06"/>
+    </linearGradient>
+  </defs>
+
+  <g fill="none" stroke="url(#disk)" stroke-linecap="round">
+    <!-- Far side of the disk, warped into an arc above the shadow. -->
+    <path d="M34 72C91 66 94 26 135 18C195 6 199 59 266 65" stroke-width=".65" opacity=".5"/>
+    <path d="M43 73C96 66 98 31 136 23C191 12 198 61 257 67" stroke-width="1.25"/>
+    <path d="M51 74C98 67 104 36 137 28C183 17 196 63 249 68" stroke-width=".75" opacity=".72"/>
+    <path d="M63 73C103 67 112 39 139 33C178 24 196 65 235 69" stroke-width=".65" opacity=".58"/>
+    <!-- A fainter image of the underside of the disk. -->
+    <path d="M78 76C109 80 112 106 146 108C181 111 193 84 225 73" stroke-width=".85" opacity=".53"/>
+    <path d="M89 76C116 81 120 101 146 103C175 106 190 84 214 74" stroke-width=".75" opacity=".75"/>
+  </g>
+
+  <circle cx="150" cy="62" r="28" fill="url(#ink)" stroke="#b98673" stroke-width=".65"/>
+
+  <!-- The near side of the same disk crosses in front of the shadow. -->
+  <path d="M27 72C78 76 106 62 147 62C193 61 220 71 273 65C220 79 192 77 149 81C99 85 65 85 27 72Z"
+        fill="#d8a48d" opacity=".29"/>
+  <g fill="none" stroke="url(#disk)" stroke-linecap="round">
+    <path d="M24 71C72 78 109 61 148 62C193 60 224 70 275 65" stroke-width=".8" opacity=".78"/>
+    <path d="M33 74C77 82 108 67 149 66C191 65 225 73 267 66" stroke-width="1.2"/>
+    <path d="M36 77C82 85 110 73 149 72C192 69 222 76 265 69" stroke-width=".9"/>
+    <path d="M45 80C84 89 116 78 149 78C193 74 223 78 253 73" stroke-width=".7" opacity=".65"/>
+  </g>
+  <path d="M112 70C126 67 145 65 158 66" fill="none" stroke="#e3b9a5" stroke-width=".8" stroke-linecap="round"/>
+</svg>
