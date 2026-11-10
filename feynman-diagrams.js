@@ -1,18 +1,5 @@
 (() => {
   const diagrams = {
-    'annihilation': {
-      vertices: [[128, 85], [280, 85]],
-      lines: [
-        { from: [51, 36], to: [128, 85] },
-        { from: [51, 134], to: [128, 85], anti: true },
-        { from: [128, 85], to: [280, 85], boson: true, stage: 1 },
-        { from: [280, 85], to: [357, 36], stage: 2 },
-        { from: [280, 85], to: [357, 134], anti: true, stage: 2 },
-      ],
-      labels: [
-        [33, 32, 'e⁻'], [33, 141, 'e⁺'], [375, 32, 'μ⁻'], [375, 141, 'μ⁺'], [204, 64, 'γ', true],
-      ],
-    },
     'compton': {
       vertices: [[128, 85], [280, 85]],
       lines: [
