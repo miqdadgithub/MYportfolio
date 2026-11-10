@@ -297,10 +297,29 @@ h2 {
     background: var(--paper-deep) var(--paper-grain);
 }
 
-.next-inner { align-items: center; border: 0; }
+.next-inner {
+    grid-template-areas:
+        "heading copy"
+        "diagram copy";
+    align-items: start;
+    row-gap: 16px;
+    padding-block: clamp(52px, 6vw, 76px);
+    border: 0;
+}
+
+.next-heading { grid-area: heading; }
 #next-title { text-wrap: balance; }
-.next-inner strong { color: var(--ink); font-weight: 650; }
-.next-inner .text-link { margin-top: 22px; }
+
+.next-copy {
+    grid-area: copy;
+    align-self: center;
+    max-width: 54ch;
+    color: var(--muted);
+}
+
+.next-copy p + p { margin-top: 15px; }
+.next-copy strong { color: var(--ink); font-weight: 650; }
+.next-copy .text-link { margin-top: 18px; }
 
 feynman-diagram {
     display: block;
@@ -326,9 +345,9 @@ feynman-diagram {
 }
 
 .next-inner feynman-diagram {
-    justify-self: center;
-    width: min(92%, 500px);
-    opacity: .72;
+    grid-area: diagram;
+    width: min(82%, 270px);
+    opacity: .66;
 }
 
 #cv { border-top: 0; }
@@ -509,7 +528,13 @@ feynman-diagram {
         justify-self: center;
     }
 
+    .next-inner {
+        grid-template-areas: "heading" "copy" "diagram";
+        row-gap: 24px;
+    }
+
     .next-inner feynman-diagram {
+        justify-self: center;
         width: min(86%, 320px);
     }
 
