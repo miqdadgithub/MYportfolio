@@ -46,12 +46,11 @@ a { color: inherit; }
 }
 
 .hero {
-    position: relative;
-    isolation: isolate;
-    min-height: clamp(530px, 50vw, 670px);
     display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
     align-items: center;
-    padding-block: clamp(76px, 9vw, 116px);
+    gap: clamp(12px, 2vw, 36px);
+    padding-block: clamp(64px, 7vw, 100px);
 }
 
 .hero-copy { min-width: 0; }
@@ -59,11 +58,18 @@ a { color: inherit; }
 .eyebrow, .meta {
     color: var(--muted);
     font-family: var(--mono);
-    font-size: .73rem;
+    font-size: .8125rem;
     font-weight: 550;
     line-height: 1.45;
     letter-spacing: .075em;
     text-transform: uppercase;
+}
+
+.meta {
+    font-weight: 450;
+    letter-spacing: .015em;
+    text-transform: none;
+    font-variant-numeric: tabular-nums;
 }
 
 .hero-kicker {
@@ -86,7 +92,7 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: clamp(4rem, 9.3vw, 8.25rem);
+    font-size: clamp(3.2rem, 7.5vw, 6.25rem);
     line-height: .95;
     letter-spacing: -.06em;
 }
@@ -126,13 +132,13 @@ h1 em {
     min-height: 45px;
     padding: 9px 15px;
     border: 1px solid var(--accent);
-    border-radius: 3px;
+    border-radius: 5px;
     background: var(--accent);
     color: var(--paper);
 }
 
-.button:hover { background: var(--accent-dark); }
-.button span, .text-link span { font-size: 1.06em; }
+.button:active { background: var(--accent-dark); }
+.text-link span { font-size: 1.06em; }
 
 .text-link {
     color: var(--accent-dark);
@@ -141,13 +147,11 @@ h1 em {
     text-underline-offset: .25em;
 }
 
-.text-link:hover { text-decoration-color: currentColor; }
-
 .profile {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-top: 30px;
+    margin-top: 22px;
 }
 
 .profile img {
@@ -158,17 +162,14 @@ h1 em {
     border-radius: 50%;
 }
 
-.profile p { font-size: .81rem; }
+.profile p { font-size: .875rem; }
 .profile strong { display: block; font-weight: 650; }
 .profile p span { color: var(--muted); }
 
 .solar-orbits {
-    position: absolute;
-    z-index: -1;
-    inset: auto -1.5% 0 auto;
-    width: min(64%, 710px);
+    width: 100%;
     height: auto;
-    opacity: .64;
+    opacity: .9;
     pointer-events: none;
 }
 
@@ -185,30 +186,30 @@ h1 em {
 
 .split > * { min-width: 0; }
 
-.section-label {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    margin-bottom: 16px;
-}
-
-.section-label span { color: var(--accent); font-weight: 700; }
-
 h2 {
     font-size: clamp(2.7rem, 5.1vw, 5rem);
     line-height: .98;
     letter-spacing: -.05em;
 }
 
-.section-intro > p:not(.eyebrow) {
+.section-intro > p {
     max-width: 35ch;
     margin-top: 20px;
     color: var(--muted);
 }
 
-.research-row { padding: 18px 0 24px; border-top: 1px solid var(--line); }
-.research-row:last-child { padding-bottom: 0; }
-.research-row .meta { margin-bottom: 7px; }
+.research-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 5px 16px;
+}
+.research-row + .research-row {
+    margin-top: 30px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+}
+.research-row h3 { flex-basis: 100%; }
 .meta span { color: var(--accent); }
 
 .research-row h3, .project h3 {
@@ -218,24 +219,24 @@ h2 {
 }
 
 .entry-role {
-    margin-top: 4px;
     color: var(--accent-dark);
-    font-size: .84rem;
+    font-size: .875rem;
     font-weight: 650;
 }
 
 .research-row > p:last-child {
+    flex-basis: 100%;
     max-width: 63ch;
     margin-top: 8px;
     color: var(--muted);
-    font-size: .96rem;
+    font-size: 1rem;
 }
 
 .project-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: clamp(26px, 6vw, 76px);
-    margin-top: 32px;
+    margin-top: clamp(24px, 4vw, 48px);
 }
 
 .project {
@@ -264,7 +265,7 @@ h2 {
 .project > p, .thesis-copy h3 + p {
     margin-top: 11px;
     color: var(--muted);
-    font-size: .96rem;
+    font-size: 1rem;
 }
 
 .project > p { margin-bottom: 18px; }
@@ -273,24 +274,36 @@ h2 {
 .thesis-project {
     display: grid;
     grid-column: 1 / -1;
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+    grid-template-columns: minmax(0, .84fr) minmax(0, 1.16fr);
     align-items: center;
     gap: clamp(20px, 3.2vw, 38px);
-    padding-block: clamp(24px, 3.8vw, 42px);
+    padding: 0 0 clamp(32px, 4.5vw, 56px);
+    border: 0;
 }
 
 .thesis-copy .meta { margin-bottom: 10px; }
+.thesis-copy h3 { font-size: clamp(2rem, 3.6vw, 3.25rem); }
 .thesis-copy h3 span { white-space: nowrap; }
 
 .string-illustrations {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    gap: clamp(8px, 1.5vw, 24px);
+    align-self: stretch;
+    align-items: center;
+    padding: clamp(16px, 2.5vw, 30px) clamp(6px, 1vw, 16px);
+    background: #f8f5f0 var(--paper-grain);
     text-align: center;
 }
 
 .string-illustrations img { width: 100%; height: auto; }
-.string-illustrations figcaption { margin-top: 4px; font-size: .65rem; }
+.string-illustrations figcaption {
+    margin-top: 4px;
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 1rem;
+    font-style: italic;
+}
 
 .next-band {
     border-block: 1px solid var(--line);
@@ -328,18 +341,16 @@ feynman-diagram {
     --diagram-accent: var(--accent);
 }
 
-.projects-heading, .cv-intro, .footer-inner {
-    position: relative;
-    isolation: isolate;
+.projects-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
 }
 
 .black-hole {
-    position: absolute;
-    z-index: -1;
-    inset: 50% 3% auto auto;
-    width: min(34%, 315px);
+    width: min(25%, 190px);
     height: auto;
-    transform: translateY(-50%);
     opacity: .74;
     pointer-events: none;
 }
@@ -356,27 +367,41 @@ feynman-diagram {
     width: min(78%, 275px);
     margin-top: 30px;
     opacity: .57;
-    --diagram-delay: .75s;
 }
 
+.cv-intro {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "title diagram" "intro diagram";
+    align-content: center;
+    gap: 10px 24px;
+    margin-bottom: clamp(24px, 3vw, 36px);
+}
+
+.cv-intro h2 { grid-area: title; align-self: end; }
+.cv-intro > p { grid-area: intro; margin: 0; max-width: none; }
 .cv-intro feynman-diagram {
-    width: min(92%, 350px);
-    margin-top: 42px;
+    grid-area: diagram;
+    align-self: center;
+    width: clamp(110px, 18vw, 210px);
     opacity: .57;
-    --diagram-delay: .75s;
 }
 
 .cv-group {
-    padding-block: 15px 21px;
+    display: grid;
+    grid-template-columns: minmax(140px, .5fr) minmax(0, 1.5fr);
+    align-items: baseline;
+    gap: 0 clamp(20px, 4vw, 54px);
+    padding-block: 20px;
     border-top: 1px solid var(--line);
 }
 
 .cv-group:last-child { padding-bottom: 0; }
 
 .cv-group h3 {
-    margin-bottom: 12px;
     color: var(--accent-dark);
 }
+.cv-group > :not(h3) { grid-column: 2; }
 
 .cv-entry {
     display: grid;
@@ -386,8 +411,8 @@ feynman-diagram {
 }
 
 .cv-entry + .cv-entry { margin-top: 14px; }
-.cv-entry h4 { font-size: .96rem; font-weight: 675; line-height: 1.4; }
-.cv-entry div > p, .honours { color: var(--muted); font-size: .9rem; }
+.cv-entry h4 { font-size: 1rem; font-weight: 650; line-height: 1.4; }
+.cv-entry div > p, .honours { color: var(--muted); font-size: 1rem; }
 .cv-entry div > p { margin-top: 3px; }
 .cv-entry > .meta { white-space: nowrap; }
 
@@ -404,12 +429,9 @@ feynman-diagram {
 }
 
 .skill-list li {
-    padding: 3px 8px;
-    border: 1px solid var(--line);
-    border-radius: 3px;
     color: var(--muted);
-    font-size: .8rem;
 }
+.skill-list li:not(:last-child)::after { content: ","; }
 
 .site-footer {
     border-top: 1px solid var(--line);
@@ -418,20 +440,19 @@ feynman-diagram {
 
 .footer-inner {
     display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-    align-items: end;
-    gap: 28px 40px;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, .5fr) minmax(0, 1fr);
+    grid-template-areas: "invitation diagram profiles";
+    align-items: center;
+    gap: clamp(16px, 3vw, 40px);
     padding-block: clamp(45px, 6vw, 76px);
 }
 
 .footer-inner feynman-diagram {
-    position: absolute;
-    z-index: -1;
-    inset: 9% 6% auto auto;
-    width: min(33%, 345px);
-    opacity: .48;
-    --diagram-delay: 1.65s;
+    grid-area: diagram;
+    width: 100%;
+    opacity: .62;
 }
+.footer-inner > div:not(.footer-aside) { grid-area: invitation; }
 
 .footer-inner h2 { font-size: clamp(2.7rem, 5vw, 4.55rem); }
 
@@ -449,7 +470,7 @@ feynman-diagram {
     text-underline-offset: .22em;
 }
 
-.footer-aside { justify-self: end; }
+.footer-aside { grid-area: profiles; justify-self: end; }
 
 .phone-link {
     display: inline-block;
@@ -468,7 +489,6 @@ feynman-diagram {
 }
 
 .social-links a, .footer-bottom a { text-decoration: none; }
-.social-links a:hover, .footer-bottom a:hover { color: var(--accent); }
 
 .footer-bottom {
     display: grid;
@@ -484,49 +504,33 @@ feynman-diagram {
 .footer-credit { font-size: .72rem; }
 .footer-bottom > a { white-space: nowrap; }
 
-@media (min-width: 721px) and (max-width: 1000px) {
-    .solar-orbits {
-        opacity: .52;
-        mask-image: linear-gradient(90deg, transparent, black 36%);
-    }
+@media (hover: hover) and (pointer: fine) {
+    .button:hover { background: var(--accent-dark); }
+    .text-link:hover { text-decoration-color: currentColor; }
+    .social-links a:hover, .footer-bottom a:hover { color: var(--accent); text-decoration: underline; }
 }
 
 @media (max-width: 720px) {
-    .hero, .split, .footer-inner { grid-template-columns: minmax(0, 1fr); }
+    .hero, .split { grid-template-columns: minmax(0, 1fr); }
 
     .hero {
-        min-height: 0;
-        padding-block: clamp(52px, 11vw, 76px) 27px;
+        gap: 12px;
+        padding-block: clamp(38px, 7vw, 52px) 20px;
     }
 
-    h1 { font-size: clamp(2.45rem, 11vw, 5.1rem); }
+    h1 { font-size: clamp(2.45rem, 13vw, 5.1rem); }
     .hero-intro { margin-top: 20px; }
     .hero-actions { margin-top: 20px; }
-    .profile { margin-top: 23px; }
+    .profile { margin-top: 18px; }
 
     .solar-orbits {
-        position: relative;
-        inset: auto;
-        width: min(100%, 440px);
-        justify-self: center;
-        opacity: .62;
+        width: min(70%, 260px);
+        justify-self: end;
     }
 
     .section-intro h2 br { display: none; }
 
-    .black-hole {
-        inset: -20px 0 auto auto;
-        width: min(40%, 205px);
-        transform: none;
-        opacity: .53;
-    }
-
     .thesis-project { grid-template-columns: minmax(0, 1fr); }
-
-    .string-illustrations {
-        width: min(100%, 370px);
-        justify-self: center;
-    }
 
     .next-inner {
         grid-template-areas: "heading" "copy" "diagram";
@@ -543,26 +547,34 @@ feynman-diagram {
         margin-top: 15px;
     }
 
-    .cv-intro feynman-diagram {
-        position: absolute;
-        z-index: -1;
-        inset: -22px 0 auto auto;
-        width: min(40%, 230px);
-        margin-top: 0;
-        opacity: .34;
-    }
+    .cv-group { grid-template-columns: minmax(0, 1fr); }
+    .cv-group h3 { margin-bottom: 12px; }
+    .cv-group > :not(h3) { grid-column: 1; }
 
-    .footer-inner feynman-diagram {
-        inset: 16px 0 auto auto;
-        width: min(43%, 230px);
-        opacity: .38;
+    .footer-inner {
+        grid-template-columns: minmax(0, 1fr) minmax(70px, .4fr);
+        grid-template-areas: "invitation diagram" "profiles profiles";
     }
-
     .footer-aside { justify-self: start; }
+}
+
+@media (pointer: coarse), (max-width: 720px) {
+    .text-link, .site-footer a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        min-width: 44px;
+    }
+    .social-links { gap: 4px 10px; }
 }
 
 @media (max-width: 500px) {
     .project-grid, .cv-entry { grid-template-columns: minmax(0, 1fr); }
+    .cv-intro { grid-template-areas: "title diagram" "intro intro"; gap: 8px; }
+    .cv-intro feynman-diagram { width: 72px; }
+    .footer-inner { grid-template-areas: "invitation invitation" "profiles diagram"; }
+    .footer-inner feynman-diagram { align-self: start; }
+    .email-link { column-gap: .25em; }
     .footer-bottom { grid-template-columns: minmax(0, 1fr) auto; }
     .footer-credit { grid-column: 1 / -1; grid-row: 2; }
     .footer-bottom > a { grid-column: 2; grid-row: 1; }

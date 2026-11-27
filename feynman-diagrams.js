@@ -77,7 +77,7 @@
     return path;
   }
 
-  function renderLine({ from, to, boson = false, anti = false, stage = 0 }) {
+  function renderLine({ from, to, boson = false, anti = false, stage = 0 }, withTrace) {
     const path = boson ? wavePath(from, to) : `M ${from} L ${to}`;
     let arrow = '';
     if (!boson) {
@@ -86,14 +86,15 @@
       const angle = Math.atan2(to[1] - from[1], to[0] - from[0]) * 180 / Math.PI + (anti ? 180 : 0);
       arrow = `<path class="arrow" d="M -4.5,-3.5 L 4.5,0 L -4.5,3.5 Z" transform="translate(${x} ${y}) rotate(${angle})"/>`;
     }
-    return `<path class="line${boson ? ' boson' : ''}" d="${path}"/>
-      ${arrow}
-      <path class="trace" d="${path}" pathLength="1" style="--stage-delay: ${stage * 900}ms"/>`;
+    const trace = withTrace
+      ? `<path class="trace" d="${path}" pathLength="1" style="--stage-delay: ${stage * 540}ms"/>`
+      : '';
+    return `<path class="line${boson ? ' boson' : ''}" d="${path}"/>${arrow}${trace}`;
   }
 
-  function renderDiagram(diagram) {
+  function renderDiagram(diagram, withTrace) {
     return `<svg viewBox="0 0 408 170" aria-hidden="true" focusable="false">
-      ${diagram.lines.map(renderLine).join('')}
+      ${diagram.lines.map(line => renderLine(line, withTrace)).join('')}
       ${diagram.vertices.map(([x, y]) => `<circle class="vertex" cx="${x}" cy="${y}" r="3.15"/>`).join('')}
       ${diagram.labels.map(([x, y, label, boson]) => `<text class="label${boson ? ' boson-label' : ''}" x="${x}" y="${y}" text-anchor="middle">${label}</text>`).join('')}
     </svg>`;
@@ -123,31 +124,31 @@
       stroke: var(--_accent);
       stroke-width: 2.8;
       stroke-dasharray: .18 1.2;
-      animation: interaction-pulse 4.8s linear infinite;
-      animation-delay: calc(var(--diagram-delay, 0s) + var(--stage-delay));
-      animation-play-state: paused;
     }
 
-    :host([data-playing]) .trace { animation-play-state: running; }
+    :host([data-trace-state="playing"]) .trace,
+    :host([data-trace-state="paused"]) .trace {
+      animation: interaction-pulse 520ms linear var(--stage-delay);
+    }
+    :host([data-trace-state="paused"]) .trace { animation-play-state: paused; }
 
-    /* Each trace completes in 864 ms, before the next 900 ms stage begins. */
     @keyframes interaction-pulse {
       0% { opacity: 0; stroke-dashoffset: .18; }
-      3%, 15% { opacity: .9; }
-      18%, 100% { opacity: 0; stroke-dashoffset: -1; }
+      16%, 83% { opacity: .9; }
+      100% { opacity: 0; stroke-dashoffset: -1; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .trace { animation: none; }
+      .trace { visibility: hidden; }
     }
   `;
 
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const startThreshold = 0.5;
   const visibility = 'IntersectionObserver' in window
     ? new IntersectionObserver(entries => {
-      for (const entry of entries) {
-        entry.target.toggleAttribute('data-playing', entry.isIntersecting);
-      }
-    })
+      for (const entry of entries) entry.target.updateTrace(entry);
+    }, { threshold: [0, startThreshold] })
     : null;
 
   class FeynmanDiagram extends HTMLElement {
@@ -156,19 +157,41 @@
       if (!Object.hasOwn(diagrams, process)) return;
 
       if (!this.shadowRoot) {
-        this.attachShadow({ mode: 'open' }).innerHTML = `<style>${styles}</style>${renderDiagram(diagrams[process])}`;
+        const svg = renderDiagram(diagrams[process], process === 'neutrino');
+        this.attachShadow({ mode: 'open' }).innerHTML = `<style>${styles}</style>${svg}`;
       }
 
-      if (visibility) {
-        visibility.observe(this);
-      } else {
-        this.setAttribute('data-playing', '');
+      if (process !== 'neutrino' || !visibility || this.dataset.traceState === 'finished') return;
+      const traces = this.shadowRoot.querySelectorAll('.trace');
+      traces[traces.length - 1].addEventListener('animationend', this.finishTrace, { once: true });
+      motionPreference.addEventListener('change', this.motionChanged);
+      visibility.observe(this);
+    }
+
+    updateTrace({ intersectionRatio, isIntersecting }) {
+      if (!this.isConnected || this.dataset.traceState === 'finished') return;
+      if (intersectionRatio >= startThreshold) {
+        if (motionPreference.matches) this.finishTrace();
+        else this.dataset.traceState = 'playing';
+      } else if (!isIntersecting && this.dataset.traceState === 'playing') {
+        this.dataset.traceState = 'paused';
       }
     }
 
+    motionChanged = () => {
+      if (motionPreference.matches && this.dataset.traceState) this.finishTrace();
+    };
+
+    finishTrace = () => {
+      this.dataset.traceState = 'finished';
+      visibility?.unobserve(this);
+      motionPreference.removeEventListener('change', this.motionChanged);
+    };
+
     disconnectedCallback() {
       visibility?.unobserve(this);
-      this.removeAttribute('data-playing');
+      motionPreference.removeEventListener('change', this.motionChanged);
+      if (this.dataset.traceState) this.dataset.traceState = 'finished';
     }
   }
 
